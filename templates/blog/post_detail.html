@@ -1,0 +1,22 @@
+{% extends 'base/base.html' %}
+
+{% block title %}<title>{{ object.title }}</title>{% endblock %}
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 card mb-4  mt-3 left  top">
+              <div class="card-body">
+                <div>
+                    <h1>{{ object.title }}</h1>
+                </div>
+                <div>
+                    <p> <strong>Author: <span>{{ object.status }}</span> </strong> </p>
+                    <p class=" text-muted"> <strong>Category: </strong> {{ object.category }} | {{ object.post_date }}</p>
+                </div>
+                <p class="card-text ">{{ object.description | safe }}</p>
+              </div>
+            </div>
+            {% block sidebar %} {% include 'base/sidebar.html' %} {% endblock sidebar %}
+        </div>
+    </div>
+{% endblock %}

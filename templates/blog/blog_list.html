@@ -1,0 +1,27 @@
+{% extends 'base/base.html' %}
+{% load static %}
+<title>Pepa</title>
+{% block content %}
+    <link rel="stylesheet" href="{% static 'blog/css/blog_list.css' %}">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 mt-3 left">
+                {% for object in object_list %}
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h2 class="card-title">{{ object.title }}</h2>
+                            <p><span>Author: <span>{{ object.status }}</span></span></p>
+                            <p class="card-text text-muted h6">{{ object.category }} | {{ object.post_date }} |
+                                <i class="fa fa-eye" style="font-size:15px"> 120</i></p>
+                            <p>{{ object.description|safe|truncatewords_html:10|linebreaks }}</p>
+                            <a href="{{ object.get_absolute_url }}" class="btn btn-primary" style="background: #36ab24; border-color: aqua">Read More &rarr;</a>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% block sidebar %} {% include 'base/sidebar.html' %} {% endblock sidebar %}
+        </div>
+    </div>
+
+{% endblock %}
+

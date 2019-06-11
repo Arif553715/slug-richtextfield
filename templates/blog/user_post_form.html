@@ -1,0 +1,98 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+<meta charset="UTF-8">
+<title>User Post Form</title>
+
+
+
+{% block content %}
+
+<script type="text/javascript" src="{% static "ckeditor/ckeditor-init.js" %}"></script>
+<script type="text/javascript" src="{% static "ckeditor/ckeditor/ckeditor.js" %}"></script>
+<!-- Article Writing Form -->
+{#    <div class="container" style="background: linear-gradient(rgba(247,243,250,0.73), #a4b8b8)">#}
+{#    <h1>Write An Article</h1>#}
+{#        <div class="row">#}
+{#            <div class="col-md-12">#}
+{#                <form method="post" novalidate>#}
+{#                    {% csrf_token %}#}
+{##}
+{#                    <div class="form-row">#}
+{#                      <div class="form-group col-md-6 mb-0" style="padding-right: 55px">#}
+{#                        {{ form.title|as_crispy_field }}#}
+{#                      </div>#}
+{##}
+{#                        <div class="form-group col-md-6 mb-0" style="padding-right: 55px">#}
+{#                        {{ form.status|as_crispy_field }}#}
+{#                      </div>#}
+{##}
+{#                    </div><br>#}
+{##}
+{##}
+{##}
+{#                    <div class="form-row">#}
+{#                      <div class="form-group col-md-6 mb-0">#}
+{#                        {{ form.description|as_crispy_field }}#}
+{#                      </div>#}
+{#                    </div><br>#}
+{#                    <button style="background-color: #22990f; align-content: center; align-self: center;" type="submit" class="btn">Publish</button>#}
+{#                </form>#}
+{#            </div>#}
+{#        </div><br>#}
+{#    </div><br>#}
+
+
+
+
+
+
+        <br>
+<div style="margin:0 auto;width:85%;text-align:left" class="agileits-top">
+				<form id="user_form" method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            {{ form.as_p }}
+					<div class="wthree-text">
+						<label class="anim">
+							<input type="checkbox" class="checkbox" required="">
+							<span>I Agree To The Terms & Conditions</span><br>
+						</label>
+						<div class="clear"> </div>
+					</div><br>
+                    <head>
+                        <meta name="viewport" content="width=device-width, initial-scale=1">
+                            <style>
+                            .button {
+                            padding: 7px 20px;
+                            font-size: 24px;
+                            text-align: center;
+                            cursor: pointer;
+                            outline: none;
+                            color: #fff;
+                            background-color: #4CAF50;
+                            border: none;
+                            border-radius: 10px;
+                            box-shadow: 0 9px #999;
+                            }
+
+                            .button:hover {background-color: #3e8e41}
+
+                            .button:active {
+                            background-color: #3e8e41;
+                            box-shadow: 0 3px #666;
+                            transform: translateY(4px);
+                            }
+                            </style>
+
+                    </head>
+                    <button class="button">Submit</button>
+				</form><br>
+			</div>
+
+    <br>
+
+
+
+
+{% endblock %}
